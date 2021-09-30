@@ -12,7 +12,7 @@ import Card from "../components/Card";
 import SelectedNumber from "../components/SelectedNumber";
 import Colors from "../constatnts/Colors";
 
-const StartScreen = () => {
+const StartScreen = ({ giveNumberToApp }) => {
   const [myNumber, setMyNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [confirmedNumber, setConfirmedNumber] = useState();
@@ -43,6 +43,10 @@ const StartScreen = () => {
     setConfirmed(true);
   };
 
+  const loadGameScreen = () => {
+    giveNumberToApp(confirmedNumber);
+  };
+
   let confirmedOutput;
 
   if (confirmed) {
@@ -56,13 +60,14 @@ const StartScreen = () => {
           title="Start Game"
           style={styles.button}
           color={Colors.primary}
+          onPress={loadGameScreen}
         />
       </Card>
     );
   } else confirmedOutput = <Text> </Text>;
 
   return (
-    <View style={styles.firstScreen}>
+    <View style={styles.screen}>
       <Card style={styles.takeInput}>
         <View style={styles.inputNumber}>
           <TextInput
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
   confirmText: {
     fontSize: 20,
   },
-  firstScreen: {
+  screen: {
     flex: 8,
     height: 1000,
     maxHeight: "90%",
