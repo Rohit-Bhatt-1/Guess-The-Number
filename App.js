@@ -1,21 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Header from "./components/Header";
+import StartScreen from "./screens/StartScreen";
+import Colors from "./constatnts/Colors";
 
 export default function App() {
+  const [myNumber, setMyNumber] = useState(" ");
+
+  const handleNumberChange = (num) => {
+    if (num.length < 2) {
+      setMyNumber(" ");
+    }
+    let last = num[num.length - 1];
+    if (!(last <= 9 && last >= 0 && last != " ")) return;
+    setMyNumber(num);
+  };
+
+  const clear = () => {
+    setMyNumber(" ");
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.index}>
+      <Header name="Guess The Number ?" />
+      <StartScreen
+        handleNumberChange={handleNumberChange}
+        myNumber={myNumber}
+        clear={clear}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  index: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Colors.background,
+    height: "100%",
   },
 });
