@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Colors from "../constatnts/Colors";
+import Colors from "../utils/ThemeManager";
 
 const Card = (props) => {
   return (

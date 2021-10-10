@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import Colors from "../constatnts/Colors";
+import Colors from "../utils/ThemeManager";
 import Card from "./Card";
 
 const Header = ({ name }) => {

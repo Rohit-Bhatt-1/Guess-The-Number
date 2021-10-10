@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Card from "../components/Card";
 import SelectedNumber from "../components/SelectedNumber";
-import Colors from "../constatnts/Colors";
+import Colors from "../utils/ThemeManager";
 
 const StartScreen = ({ giveNumberToApp }) => {
   const [myNumber, setMyNumber] = useState("");

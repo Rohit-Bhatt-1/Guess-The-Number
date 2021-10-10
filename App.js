@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Header from "./components/Header";
 import StartScreen from "./screens/StartScreen";
-import Colors from "./constatnts/Colors";
+import Colors from "./utils/ThemeManager.ts";
 import GameScreen from "./screens/GameScreen";
 
 export default function App() {
@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     height: "100%",
   },
 });
+
+// sonar-scanner.bat -D"sonar.projectKey=Guess-Number" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=622198bb7feb356777a9eab9059276a25265f39f"
